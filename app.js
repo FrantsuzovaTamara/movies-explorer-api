@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
@@ -9,7 +10,19 @@ const { PORT } = require('./utils/config');
 
 const app = express();
 
+const corsOptions = {
+  origin: [
+    'https://mesto.by.frantsuzova.t.p.nomoredomains.work',
+    'http://localhost:3001',
+  ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'origin', 'Authorization', 'Accept', 'Access-Control-Allow-Headers', 'Access-Control-Allow-Origin'],
+};
+
 app.use(helmet());
+app.use('*', cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
