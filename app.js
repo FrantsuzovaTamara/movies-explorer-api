@@ -6,7 +6,7 @@ const { errors } = require('celebrate');
 const error = require('./middlewares/error');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { PORT } = require('./utils/config');
+const { PORT, MONGO_DB } = require('./utils/config');
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use('*', cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://0.0.0.0:27017/bitfilmsdb', {
+mongoose.connect(MONGO_DB, {
   useNewUrlParser: true,
 });
 

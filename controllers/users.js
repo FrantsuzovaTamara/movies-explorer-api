@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/users');
 
 const { JWT_SECRET } = require('../utils/config');
+const { CONFL_ERR_MESSAGE, VALID_ERR_MESSAGE, NOT_FOUND_ERR_MESSAGE } = require('../utils/constants');
 
 const NotFoundError = require('../errors/NotFoundError');
 const ValidationError = require('../errors/ValidationError');
@@ -24,13 +25,17 @@ module.exports.createUser = (req, res, next) => {
       password: hash,
     }))
     .then((user) => {
-      res.status(201).send({ user });
+      res.status(201).send({
+        name: user.name,
+        email: user.email,
+        _id: user._id,
+      });
     })
     .catch((err) => {
       if (err.code === 11000) {
-        next(new ConflictError('Пользователь с такой почтой уже зарегистрирован'));
+        next(new ConflictError(CONFL_ERR_MESSAGE));
       } else if (err.name === 'ValidationError') {
-        next(new ValidationError('Проверьте введённые данные'));
+        next(new ValidationError(VALID_ERR_MESSAGE));
       } else {
         next(err);
       }
@@ -55,7 +60,7 @@ module.exports.getUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
       if (!user) {
-        throw new NotFoundError('Нет пользователя с таким id');
+        throw new NotFoundError(NOT_FOUND_ERR_MESSAGE);
       }
       return res.send({ user });
     })
@@ -72,13 +77,15 @@ module.exports.changeUserInfo = (req, res, next) => {
   )
     .then((user) => {
       if (!user) {
-        throw new NotFoundError('Нет пользователя с таким id');
+        throw new NotFoundError(NOT_FOUND_ERR_MESSAGE);
       }
       res.send({ user });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') {
-        next(new ValidationError('Проверьте введённые данные'));
+      if (err.code === 11000) {
+        next(new ConflictError(CONFL_ERR_MESSAGE));
+      } else if (err.name === 'ValidationError') {
+        next(new ValidationError(VALID_ERR_MESSAGE));
       } else {
         next(err);
       }
