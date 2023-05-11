@@ -12,7 +12,7 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'http://movies.explorer.nomoredomains.monster',
+    'https://movies.explorer.nomoredomains.monster',
     'http://localhost:3001',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
