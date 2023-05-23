@@ -11,9 +11,9 @@
 
 ## **Сайт проекта**
 
-[Фронтенд проекта на GitHub Pages](https://frantsuzovatamara.github.io/movies-explorer-frontend/)
-[Ccылка на фронтенд](https://movies.explorer.nomoredomains.monster/)
-[Ссылка на бэкенд](https://api.movies.explorer.nomoredomains.monster)
+* [Фронтенд проекта на GitHub Pages](https://frantsuzovatamara.github.io/movies-explorer-frontend/)
+* [Ccылка на фронтенд](https://movies.explorer.nomoredomains.monster/)
+* [Ссылка на бэкенд](https://api.movies.explorer.nomoredomains.monster)
 
 ## **Описание проекта**
 
