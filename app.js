@@ -13,7 +13,7 @@ const app = express();
 const corsOptions = {
   origin: [
     'https://movies.explorer.nomoredomains.monster',
-    'https://https://frantsuzovatamara.github.io/',
+    'https://https://frantsuzovatamara.github.io',
     'http://localhost:3001',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
