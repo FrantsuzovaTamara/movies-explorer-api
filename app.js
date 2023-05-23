@@ -15,7 +15,7 @@ const corsOptions = {
     'https://movies.explorer.nomoredomains.monster',
     'https://frantsuzovatamara.github.io/movies-explorer-frontend',
     'http://localhost:3001/movies-explorer-frontend',
-    'http://localhost:3001/movies-explorer-frontend'
+    'http://localhost:3000/movies-explorer-frontend'
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
