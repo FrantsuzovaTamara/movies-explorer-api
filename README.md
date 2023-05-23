@@ -4,12 +4,12 @@
 
 ## Обзор
 
-* Ссылка на api
+* Ссылка на проект
 * Описание проекта
 * Что использовалось?
 * Как запустить?
 
-## **Сайт проекта**
+## **Ссылка на проект**
 
 * [Фронтенд проекта на GitHub Pages](https://frantsuzovatamara.github.io/movies-explorer-frontend/)
 * [Ccылка на фронтенд](https://movies.explorer.nomoredomains.monster/)
